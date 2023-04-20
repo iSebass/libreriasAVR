@@ -35,7 +35,10 @@ void TWI_Init(void){
 void TWI_Start(void){
 
 	//enviamos la instruccion de start condition ofrecida por el fabricante
-	TWCR0 = (1<<TWINT)|	(1<<TWSTA)|(1<<TWEN);	//Esperamos a que termine de ejecutar la instruccion de start	while (!(TWCR0 &(1<<TWINT)));
+	TWCR0 = (1<<TWINT)|	(1<<TWSTA)|(1<<TWEN);
+
+	//Esperamos a que termine de ejecutar la instruccion de start
+	while (!(TWCR0 &(1<<TWINT)));
 }
 
 void TWI_Stop(void){
