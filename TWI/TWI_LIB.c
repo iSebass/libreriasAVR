@@ -10,21 +10,20 @@ void TWI_Init(void){
 	// TMSR0 = 3 -> PREESCALER = 64
 	TWSR0 = 0; 
 	
-	
 	/*
 		CONFIGURAMOS EL REGSITRO TWBRn PARA GARANTIZAR UNA VELOCIDAD DE 
         LA MACRO  SCL_CLOCK, TENER EN CUENTA QUE DEPENDIENDO EL VALOR DEL
         CALCULO SE DEBE AGREGAR UN PREESCALDOR. EN ESTE CASO PRE = 1
 
 	               Fosc
-		Fscl = ----------------------
+		Fscl = ___________________
 				16+2(TWBRn)*(PRE)	
 
-				 --         --
-				|  Fosc       |  
-		TWBRn = | ------ - 16 | / 2
+				 
+				|   Fosc      |   
+		TWBRn = | ______ - 16 | / 2
 				|  Fscl		  |	
-                 --         --
+                
 	*/
 	TWBR0 = ((F_CPU/SCL_CLOCK)-16)/2; 
 	
@@ -33,12 +32,8 @@ void TWI_Init(void){
 }
 
 void TWI_Start(void){
-
-	//enviamos la instruccion de start condition ofrecida por el fabricante
-	TWCR0 = (1<<TWINT)|	(1<<TWSTA)|(1<<TWEN);
-
-	//Esperamos a que termine de ejecutar la instruccion de start
-	while (!(TWCR0 &(1<<TWINT)));
+	TWCR0 = (1<<TWINT)|	(1<<TWSTA)|(1<<TWEN); //enviamos la instruccion de start condition ofrecida por el fabricante
+	while (!(TWCR0 &(1<<TWINT))); // Esperamos a que se genere la señal de start
 }
 
 void TWI_Stop(void){
@@ -56,8 +51,7 @@ void TWI_Write(uint8_t data){
 	while (!(TWCR0 & (1<<TWINT)));
 }
 
-uint8_t TWI_ReadAck(void)
-{
+uint8_t TWI_ReadAck(void){
 	// Lectura de datos del bus TWI con ACK
 	TWCR0 = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
 	
