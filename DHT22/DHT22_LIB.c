@@ -68,7 +68,7 @@ uint8_t DHT22_ReadData(float *temperature, float *humidity) {
 	DHT22_PORT |= (1 << DHT22_BIT);
 			
 	// VERIFICAMOS EL CHECKSUM
-	if ( (data[0] + data[1] + data[2] + data[3]) == data[4]) {
+	if ( 0x0F & (data[0] + data[1] + data[2] + data[3]) == data[4]) {
 		uint16_t rawhumidity    = data[0] <<8 | data[1];
 		uint16_t rawtemperature = data[2] <<8 | data[3];
 		
