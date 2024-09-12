@@ -33,5 +33,6 @@
 
 void ADC_init();
 uint16_t ADC_read(uint8_t channel);
+float ADC_Map(int conv1, float conv_min, float conv_max, float sal_min, float sal_max);
 
 #endif /* ADC_LIB_H_ */

@@ -49,3 +49,13 @@ uint16_t ADC_read(uint8_t channel){
 	return ADC;
 
 }
+
+float ADC_Map(int conv1, float conv_min, float conv_max, float sal_min, float sal_max){
+	
+	float m;
+	
+	m = (sal_max-sal_min)/(conv_max-conv_min);
+	
+	return (m*conv1-m*conv_min+sal_min);
+	
+}
