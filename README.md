@@ -90,7 +90,7 @@ completa y el bit de interrupción de recepción completa.
 4. UCSRC: este registro es el Registro de Control del USART C y se utiliza para configurar los 
 parámetros de la comunicación serial, como la velocidad de transmisión, el número de bits 
 de datos, el número de bits de parada y la paridad. 
-5.UBRRnH y UBRRnL: estos registros son los Registros de Baudrate del USART y se utilizan 
+5. UBRRnH y UBRRnL: estos registros son los Registros de Baudrate del USART y se utilizan 
 para configurar la velocidad de transmisión. La velocidad de transmisión se calcula a partir 
 de la frecuencia del reloj del sistema y el valor almacenado en estos registros. 
 Diagrama de bloques del modulo UART en el microcontrolador ATMEGA328PB
