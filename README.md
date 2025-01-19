@@ -83,7 +83,7 @@ El microcontrolador ATMEGA328PB cuenta con dos módulos USART, cada uno con sus 
 estado actual de la transmisión/recepción. Incluye bits de estado como el indicador de 
 transmisión completa, el indicador de recepción completa, el indicador de desbordamiento 
 de recepción y el indicador de error de paridad. 
-3.UCSRB: este registro es el Registro de Control del USART B y se utiliza para configurar la 
+3. UCSRB: este registro es el Registro de Control del USART B y se utiliza para configurar la 
 operación del módulo USART. Incluye bits de control como el bit de habilitación de 
 transmisión, el bit de habilitación de recepción, el bit de interrupción de transmisión 
 completa y el bit de interrupción de recepción completa.
